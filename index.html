@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Мой сюрприз 💗</title>
+<title>Мой сюрприз ❤️</title>
 
 <style>
 
 body {
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#ffd6e7,#fff3f8);
-    text-align:center;
-    overflow-x:hidden;
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ffd6e7,#fff3f8);
+text-align:center;
+overflow-x:hidden;
 }
 
 
 #giftScreen {
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:linear-gradient(135deg,#ffb6d9,#ffe8f2);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:10;
+
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,#ffb6d9,#ffe8f2);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
+
 }
 
 
 .gift {
-    font-size:110px;
-    cursor:pointer;
-    animation:jump 1s infinite;
+
+font-size:110px;
+cursor:pointer;
+animation:jump 1s infinite;
+
 }
 
 
@@ -46,9 +52,13 @@ transform:translateY(-20px);
 }
 
 
+
 .hide {
-    animation:hide 1s forwards;
+
+animation:hide 1s forwards;
+
 }
+
 
 
 @keyframes hide {
@@ -67,7 +77,7 @@ visibility:hidden;
 background:white;
 width:85%;
 max-width:500px;
-margin:30px auto;
+margin:40px auto;
 padding:25px;
 border-radius:30px;
 box-shadow:0 10px 30px pink;
@@ -81,6 +91,14 @@ h1 {
 color:#ff4f91;
 
 }
+
+
+h2 {
+
+color:#ff72ad;
+
+}
+
 
 
 button {
@@ -98,16 +116,6 @@ cursor:pointer;
 
 
 
-img {
-
-width:250px;
-border-radius:25px;
-box-shadow:0 5px 20px pink;
-
-}
-
-
-
 .hidden {
 
 display:none;
@@ -116,28 +124,7 @@ display:none;
 
 
 
-.heart {
-
-position:fixed;
-color:#ff6fa5;
-animation:fall 5s linear infinite;
-
-}
-
-
-@keyframes fall {
-
-from {
-transform:translateY(-50px);
-}
-
-to {
-transform:translateY(100vh);
-}
-
-}
-
-
+/* Игра */
 
 #gameArea {
 
@@ -160,6 +147,32 @@ cursor:pointer;
 }
 
 
+
+/* Падающие сердечки */
+
+.heart {
+
+position:fixed;
+color:#ff6fa5;
+animation:fall 5s linear;
+
+}
+
+
+
+@keyframes fall {
+
+from {
+transform:translateY(-50px);
+}
+
+to {
+transform:translateY(100vh);
+}
+
+}
+
+
 </style>
 
 </head>
@@ -168,7 +181,6 @@ cursor:pointer;
 <body>
 
 
-<!-- Подарок -->
 
 <div id="giftScreen">
 
@@ -177,7 +189,7 @@ cursor:pointer;
 </div>
 
 <h2>
-У меня есть кое-что для тебя 💗
+У меня есть кое-что для тебя ❤️
 </h2>
 
 <p>
@@ -188,36 +200,18 @@ cursor:pointer;
 
 
 
+
 <div class="container">
 
 
 <h1>
-💗 Маленький сюрприз 💗
+❤️ Маленький сюрприз ❤️
 </h1>
 
 
-
-<img src="photo.jpg">
-
-
-
 <h2>
-Для тебя ❤️
+Для самого особенного человека
 </h2>
-
-
-
-<button onclick="playMusic()">
-🎵 Включить музыку
-</button>
-
-
-<audio id="music">
-
-<source src="music.mp3">
-
-</audio>
-
 
 
 
@@ -229,17 +223,17 @@ cursor:pointer;
 
 <div id="letter" class="hidden">
 
-Кисику💕
+<h3>
+Для тебя ❤️
 </h3>
 
 <p>
 
-А ты знал вообще что я тебя люблю)
+Я тебя люблю вообще-то ксли ты не знал
 
 </p>
 
 </div>
-
 
 
 
@@ -275,9 +269,7 @@ cursor:pointer;
 
 
 
-
 <script>
-
 
 
 function openGift(){
@@ -290,17 +282,6 @@ document
 
 
 
-function playMusic(){
-
-document
-.getElementById("music")
-.play();
-
-}
-
-
-
-
 function letter(){
 
 document
@@ -308,7 +289,6 @@ document
 .style.display="block";
 
 }
-
 
 
 
@@ -325,6 +305,7 @@ createHeart();
 
 
 let score=0;
+
 
 
 function createHeart(){
@@ -361,13 +342,13 @@ createHeart();
 
 area.appendChild(heart);
 
-
 }
 
 
 
 
-setInterval(function(){
+setInterval(()=>{
+
 
 let h=document.createElement("div");
 
@@ -379,11 +360,12 @@ h.style.left=Math.random()*100+"%";
 
 h.style.fontSize=Math.random()*30+20+"px";
 
+
 document.body.appendChild(h);
 
 
 
-setTimeout(function(){
+setTimeout(()=>{
 
 h.remove();
 
@@ -398,5 +380,7 @@ h.remove();
 </script>
 
 
+
 </body>
+
 </html>
