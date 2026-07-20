@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Мой сюрприз 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg,#ffd6e7,#ffeef7);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+h1 {
+    color:#ff4f91;
+    margin-top:40px;
+}
+
+.container {
+    background:white;
+    width:85%;
+    max-width:500px;
+    margin:30px auto;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 30px #ffb6d9;
+}
+
+button {
+    background:#ff6fa5;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:30px;
+    margin:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#ff4081;
+}
+
+.hidden {
+    display:none;
+}
+
+.heart {
+    position:absolute;
+    color:#ff6fa5;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall {
+    from {
+        transform:translateY(-100px);
+    }
+    to {
+        transform:translateY(100vh);
+    }
+}
+
+#gameArea {
+    height:300px;
+    background:#fff0f6;
+    border-radius:20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.heartGame {
+    position:absolute;
+    font-size:30px;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<h1>💗 Маленький сюрприз для тебя 💗</h1>
+
+
+<div class="container">
+
+<button onclick="music()">🎵 Включить музыку</button>
+
+<audio id="song">
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<h2>Меню сюрприза 🎁</h2>
+
+
+<button onclick="showLetter()">💌 Открыть письмо</button>
+
+<button onclick="showGame()">🎮 Мини-игра</button>
+
+
+<div id="letter" class="hidden">
+
+<h3>Для тебя ❤️</h3>
+
+<p>
+Я хочу, чтобы ты всегда улыбался.
+Спасибо за все моменты, которые делают меня счастливой.
+Ты особенный человек для меня 💕
+</p>
+
+</div>
+
+
+
+<div id="game" class="hidden">
+
+<h3>Собери сердечки ❤️</h3>
+
+<p>Счёт: <span id="score">0</span></p>
+
+<div id="gameArea"></div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+function music(){
+let song=document.getElementById("song");
+song.play();
+}
+
+
+
+function showLetter(){
+document.getElementById("letter").style.display="block";
+}
+
+
+function showGame(){
+document.getElementById("game").style.display="block";
+createHeart();
+}
+
+
+
+let score=0;
+
+
+function createHeart(){
+
+let area=document.getElementById("gameArea");
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.className="heartGame";
+
+heart.style.left=Math.random()*250+"px";
+
+heart.style.top=Math.random()*250+"px";
+
+
+heart.onclick=function(){
+
+score++;
+
+document.getElementById("score").innerHTML=score;
+
+heart.remove();
+
+createHeart();
+
+}
+
+
+area.appendChild(heart);
+
+}
+
+
+
+setInterval(()=>{
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=Math.random()*30+20+"px";
+
+document.body.appendChild(h);
+
+
+setTimeout(()=>{
+
+h.remove();
+
+},5000);
+
+
+},500);
+
+
+</script>
+
+
+</body>
+</html>
